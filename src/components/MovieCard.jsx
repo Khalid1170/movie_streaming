@@ -16,11 +16,6 @@ const MovieCard = ({ movie }) => {
     // Add your logic for Favourite here
   };
 
-  const handleAddToList = () => {
-    console.log(`"${movie.title}" added to Custom List`);
-    // Add your logic for Add to List here
-  };
-
   // Step 3: Create a click handler to cycle through the functions
   const handleClick = () => {
     switch (currentFunction) {
@@ -28,8 +23,8 @@ const MovieCard = ({ movie }) => {
         handleWatchList();
         setCurrentFunction('favourite');
         break;
-      case 'addToList':
-        handleAddToList();
+      case 'favourite':
+        handleFavourite();
         setCurrentFunction('watchList'); // Cycle back to the first function
         break;
       default:
