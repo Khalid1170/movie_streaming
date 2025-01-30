@@ -1,21 +1,27 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import './App.css';
 import MovieDisplay from './components/MovieDisplay';
-import MovieDetails from './components/MovieDetails';
+import { fetchMovies } from './components/MovieComponent';
 import './index.css';
 
-function App() {
+function App () {
+  const [movies, setMovies] = useState([]);
+
+  useEffect(() => {
+    const getMovies = async () => {
+      const movies = await fetchMovies();
+      setMovies(movies);
+    };
+
+    getMovies();
+  }, []);
+
   return (
-    <Router>
-      <div className="App">
-        <h1>Movie App</h1>
-        <Routes>
-          <Route path="/" element={<MovieDisplay />} />
-          <Route path="/movie/:id" element={<MovieDetails />} />
-        </Routes>
-      </div>
-    </Router>
+    <div className="App">
+      <h1>Popular Movies</h1>
+      <MovieDisplay movies={movies} />
+    </div>
   );
-}
+};
 
 export default App;
