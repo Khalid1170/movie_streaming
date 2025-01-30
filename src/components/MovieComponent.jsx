@@ -22,3 +22,10 @@ export const fetchFreeMovies = async () => {
   const data = await response.json();
   return data.results;
 };
+
+// Function to fetch movie details by movie ID
+export const fetchMovieDetails = async (movieId) => {
+  const response = await fetch(`${BASE_URL}/movie/${movieId}?api_key=${API_KEY}`);
+  const data = await response.json();
+  return data;
+};
