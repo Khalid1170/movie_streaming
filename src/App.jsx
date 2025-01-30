@@ -18,9 +18,10 @@ function App () {
 
   return (
     <div className="App">
-      <h1>Popular Movies</h1>
+      <img src="./movieposters.png" alt=""/>
+
       <MovieDisplay movies={movies} />
-    </div>
+      </div>
   );
 };
 
