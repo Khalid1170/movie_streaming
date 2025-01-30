@@ -3,18 +3,19 @@
     flex-direction: column;
     justify-content: space-between; 
     align-items: center; 
+    word-wrap: break-word; 
     width: 200px; 
     height: 90%; 
     margin-right: 20px; 
     margin-bottom: 10px;
     padding-bottom: 5px;
-    object-fit: cover; 
     flex-shrink: 0; 
     border-radius: 8px; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
     background-color: #fff; 
     overflow: hidden; 
-    position: relative; 
+    position: relative;
+
   }
   
   .movie-card img {
@@ -31,6 +32,7 @@
     padding: 10px;
     text-align: center; 
     height: 30%; 
+
   }
   
   .movie-card h4 {
@@ -38,24 +40,46 @@
     font-size: 16px;
     font-weight: bold;
     line-height: 1.2; 
-    word-wrap: break-word; 
-    overflow-wrap: break-word; 
+
   }
 
 
   .movie-card button {
     padding: 10px 15px;
-    margin-top: 10px;
-    background-color: #0d253f; 
     color: white;
+    position: absolute;
+    margin-top: 5px;
     border: none;
-    border-radius: 5px;
+    border-radius: 100px;
     cursor: pointer;
     font-size: 14px;
     transition: background-color 0.3s ease;
   }
   
   .movie-card button:hover {
-    background-color: #01b4e4; 
+    opacity: 0.8;
+    background-color: #333; 
   }
+  
+  .multi-function-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+
+  .multi-function-button.watchList {
+    background-color: #318CE7;
+  }
+  
+  .multi-function-button.favourite {
+    background-color: #73C2FB; 
+  }
+  
   
