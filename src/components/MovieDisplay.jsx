@@ -23,8 +23,7 @@ const MovieDisplay = () => {
   }, []);
 
   return (
-    
-
+  
     <div className="movie-display">
       <h2>Trending Movies</h2>
       <div className="movie-category">
