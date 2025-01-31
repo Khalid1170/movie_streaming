@@ -45,3 +45,10 @@
   font-weight: bold;
   color: #333;
 }
+
+.movie-list{
+    overflow: auto;
+    grid-template-columns: repeat(4, 1fr); 
+  flex-wrap: wrap;
+
+}
