@@ -2,7 +2,7 @@
 
 This is a react based web application that fetches and displays movies from the movie data base (TMDB) API. the app showcases trending, popular and free to watch movies in separate categories. users can view movie details and add movies to their watchlist.
 
-**##Features**
+**##FEATURES**
 
 **Trending movies:** displays movies that are currently trending
 
@@ -15,7 +15,7 @@ This is a react based web application that fetches and displays movies from the 
 **Watch list:** Users can add movies to their watchlist
 
 
-**##Tech used**
+**##TECH USED**
 
 **React:** A JS library for building user interfaces
 
@@ -24,7 +24,7 @@ This is a react based web application that fetches and displays movies from the 
 **CSS:** Custom styles for the movie cards and display layout
 
 
-**##Code structure**
+**##CODE STRUCTURE**
 
 **Movie component.js:** Contains functions to fetch movies from the TMDB API
 
@@ -33,6 +33,7 @@ This is a react based web application that fetches and displays movies from the 
 ✅ fetchTrendingMovies: fetches trending movies
 
 ✅ fetchFreeMovies: fetches free to watch movies
+
 
 **MovieCard.js:** A react component that displays individual movie details.
 
@@ -44,12 +45,13 @@ This is a react based web application that fetches and displays movies from the 
 **MovieDisplay.js:** The main component that fetches and dispalys movies in different categories
 
 ✅ Uses useEffect to fetch movies when the component mounts
+
 ✅ Renders movie card components for each movie in the trending, popular and free categories
 
 **Styles:** Contains the css styles for styling the components
 
 
-**##Usage**
+**##USAGE**
 
 
 ✅ The web app automatically fetches and displays movies in three categories ie Trending, popular and free to watch
