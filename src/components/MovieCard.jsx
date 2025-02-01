@@ -2,60 +2,26 @@ import React, { useState } from 'react';
 import '../styles/MovieCard.css';
 
 const MovieCard = ({ movie }) => {
-  // Step 1: Define state to track the current function for this specific movie card
-  const [currentFunction, setCurrentFunction] = useState('watchList'); // Default to "Watch List"
-
-  // Step 2: Define the three functions
+//function to handle adding the movie to the watch list
   const handleWatchList = () => {
-    console.log(`"${movie.title}" added to Watch List`);
-    // Add your logic for Watch List here
-  };
-
-  const handleFavourite = () => {
-    console.log(`"${movie.title}" added to Favourites`);
-    // Add your logic for Favourite here
-  };
-
-  // Step 3: Create a click handler to cycle through the functions
-  const handleClick = () => {
-    switch (currentFunction) {
-      case 'watchList':
-        handleWatchList();
-        setCurrentFunction('favourite');
-        break;
-      case 'favourite':
-        handleFavourite();
-        setCurrentFunction('watchList'); // Cycle back to the first function
-        break;
-      default:
-        setCurrentFunction('watchList'); // Fallback to default
-    }
-  };
-
-  // Step 4: Dynamically set the button text based on the current function
-  const buttonText = {
-    watchList: 'Add to Watch List',
-    favourite: 'Add to Favourites',
+    console.log(`"${movie.title}" added to watch list`);
+//log the movie title to the console
   };
 
   return (
-    <div className="movie-card">
-      {/* Movie Poster */}
-      <img
-        src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-        alt={movie.title}
-      />
-      {/* Movie Title */}
-      <h4>{movie.title}</h4>
-      {/* Multi-function Button */}
+    <div className='movie-card'>
 
-      <button 
-      onClick={handleClick} 
-      className={`multi-function-button ${currentFunction}`}>
-        {buttonText[currentFunction]}
-      </button>
+      <img
+        src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}//movie poster path from the api
+        alt={movie.title}/>
+        <h4>{movie.title}</h4>
+        <button onClick={handleWatchList}//triger handleWatchlist when clicked
+        className='function-button watchList'>
+          Add to watch list
+        </button>
     </div>
   );
+
 };
 
 export default MovieCard;
