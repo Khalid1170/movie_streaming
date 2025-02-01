@@ -40,7 +40,6 @@ const MovieDisplay = () => { //defines the movie display component
       </div>
       </div>
 
-
       <h2>Popular Movies</h2>
       <div className="movie-category">
         <div className='popular'>
@@ -61,6 +60,7 @@ const MovieDisplay = () => { //defines the movie display component
       </div>
       </div>
     </div>
+
   );
 };
 

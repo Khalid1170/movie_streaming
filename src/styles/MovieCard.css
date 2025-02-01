@@ -57,7 +57,7 @@
   }
   
   .movie-card button:hover {
-    opacity: 0.8;
+    opacity: 0.7;
     background-color: #333; 
   }
   
@@ -79,7 +79,7 @@
   }
   
   .multi-function-button.favourite {
-    background-color: #73C2FB; 
+    background-color: #fb6e37; 
   }
   
   
