@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import MovieDisplay from './components/MovieDisplay';
@@ -6,23 +7,74 @@ import './index.css';
 
 function App() {
   const [movies, setMovies] = useState([]);
+=======
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import MovieDisplay from './components/MovieDisplay';
+import SearchDisplay from './components/SearchDisplay';
+import MyList from './components/MyList';
+import MovieDetails from './components/MovieDetails';
+import { fetchMovies } from './utils/fetchMovies';
+import MoviePoster from './components/MoviePoster';
 
-  useEffect(() => {
-    const getMovies = async () => {
-      const movies = await fetchMovies();
-      setMovies(movies);
-    };
+const App = () => {
+  const [searchQuery, setSearchQuery] = useState('');
+  const [searchResults, setSearchResults] = useState([]);
+  const [myMovies, setMyMovies] = useState([]);
 
-    getMovies();
-  }, []);
+  const handleSearch = async (query) => {
+    setSearchQuery(query);
+    if (query.trim()) {
+      const results = await fetchMovies('search', query);
+      setSearchResults(results);
+    } else {
+      setSearchResults([]);
+    }
+  };
+>>>>>>> 934cd5625c051db37b0b47d0cec51388a95bef16
+
+  const addToMyList = (movie) => {
+    setMyMovies((prevMovies) => {
+      if (prevMovies.some((m) => m.id === movie.id)) return prevMovies;
+      return [...prevMovies, movie];  // Add movie if not already in the list
+    });
+  };
+
+  const removeFromMyList = (movieId) => {
+    setMyMovies((prevMovies) => prevMovies.filter((movie) => movie.id !== movieId));  // Remove movie by id
+  };
 
   return (
     <Router>
+<<<<<<< HEAD
       <div className="App">
         <h1>Popular Movies</h1>
         <Routes>
           <Route path="/" element={<MovieDisplay movies={movies} />} />
           <Route path="/movie/:id" element={<MovieDetails />} />
+=======
+      <div>
+        <Navbar onSearch={handleSearch} />
+        <MoviePoster />
+
+        <MyList myMovies={myMovies} removeFromMyList={removeFromMyList} />  {/* Display My List */}
+        
+
+        <Routes>
+          <Route 
+            path="/" 
+            element={searchQuery ? 
+              <SearchDisplay query={searchQuery} results={searchResults} addToMyList={addToMyList} /> :
+              <MovieDisplay addToMyList={addToMyList} />} 
+          />
+          
+          {/* Route to MovieDetails, capturing the movie id from the URL */}
+          <Route 
+            path="/movie/:id" 
+            element={<MovieDetails addToMyList={addToMyList} />} 
+          />
+>>>>>>> 934cd5625c051db37b0b47d0cec51388a95bef16
         </Routes>
       </div>
     </Router>
