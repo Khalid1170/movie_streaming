@@ -57,3 +57,4 @@ This is a react based web application that fetches and displays movies from the 
 ✅ The web app automatically fetches and displays movies in three categories ie Trending, popular and free to watch
 
 ✅ Click the add to watch list button on any movie card to add it to your watch list
+

@@ -1,0 +1,43 @@
+.special-image {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .top-image::before {
+  content: '';
+  /* position: absolute; */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 450px;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+  }
+  
+  .top-image .overlaytext {
+  position: absolute;
+  top: 25%;
+  left: 12%;
+  transform: translate(-50%);
+  color: white;
+  text-align: left;
+  z-index: 2;
+  }
+  
+  .overlaytext button {
+  background-color: transparent;
+  color: white;
+  width: 200px;
+  height: 40px;
+  border-radius: 5
+  }
+
+  .overlaytext{
+    background-color: black;
+    padding: 2%;
+    border: 1px solid white;
+    border-radius: 25px;
+  }

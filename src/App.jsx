@@ -6,6 +6,7 @@ import SearchDisplay from './components/SearchDisplay';
 import MyList from './components/MyList';
 import MovieDetails from './components/MovieDetails';
 import { fetchMovies } from './utils/fetchMovies';
+import MoviePoster from './components/MoviePoster';
 
 const App = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -37,7 +38,10 @@ const App = () => {
     <Router>
       <div>
         <Navbar onSearch={handleSearch} />
+        <MoviePoster />
+
         <MyList myMovies={myMovies} removeFromMyList={removeFromMyList} />  {/* Display My List */}
+        
 
         <Routes>
           <Route 
