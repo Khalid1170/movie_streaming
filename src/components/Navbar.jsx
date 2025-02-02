@@ -36,7 +36,7 @@ function Navbar({ onSearch }) {
   return (
     <div className="Navbar">
       <div className="Home">
-        <button onClick={handleHomeClick}> RETURN TO HOME </button> {/* Attach handleHomeClick */}
+        <button onClick={handleHomeClick}> Home </button> {/* Attach handleHomeClick */}
       </div>
 
       <h1>Movie Buzz</h1>
