@@ -1,88 +1,66 @@
 import React, { useEffect, useState } from 'react';
 import MovieCard from './MovieCard';
 import { fetchMovies, fetchTrendingMovies, fetchFreeMovies } from './MovieComponent';
-import Navbar from './Navbar'; // Import Navbar component
+//import functions to fetch different categories of movies
 import '../styles/MovieDisplay.css';
 
-const MovieDisplay = ({ addToMyList }) => {
-  const [popularMovies, setPopularMovies] = useState([]);
-  const [trendingMovies, setTrendingMovies] = useState([]);
-  const [freeMovies, setFreeMovies] = useState([]);
-  const [searchResults, setSearchResults] = useState([]); // New state for search results
-  const [isSearching, setIsSearching] = useState(false); // To track if it's a search query
+const MovieDisplay = () => { //defines the movie display component
+  const [popularMovies, setPopularMovies] = useState([]); //stores popular movies
+  const [trendingMovies, setTrendingMovies] = useState([]);//stores trending movies
+  const [freeMovies, setFreeMovies] = useState([]);//stores free movies
 
-  // Fetch movies on initial load
-  useEffect(() => {
+  //useEffect hook to fetch movies when the component mounts
+  useEffect(() => {// Define an async function to fetch movies
+
+    // Fetch different categories of movies using imported functions 
     const getMovies = async () => {
       const popular = await fetchMovies('popular');
       const trending = await fetchTrendingMovies();
       const free = await fetchFreeMovies();
 
+      // Update the state with fetched movie data
       setPopularMovies(popular);
       setTrendingMovies(trending);
       setFreeMovies(free);
     };
 
-    if (!isSearching) {
-      getMovies();
-    }
-  }, [isSearching]); // Re-run fetching if search state changes
+    getMovies();// Call the function to fetch movies
+  }, []);// Empty dependency array ensures this runs only once when the component mounts
 
-  // Handle search input and update search results
-  const handleSearch = async (query) => {
-    setIsSearching(true); // Set searching state to true
-    const results = await fetchMovies('search', query); // Fetch search results
-    setSearchResults(results); // Update search results
-  };
-
-  return (
+  return ( //render the movie dispaly component
+  
     <div className="movie-display">
-      {/* Display the movie categories */}
       <h2>Trending Movies</h2>
       <div className="movie-category">
-        <div className="trending">
-          {isSearching ? (
-            searchResults.map((movie) => (
-              <MovieCard key={movie.id} movie={movie} addToMyList={addToMyList} />
-            ))
-          ) : (
-            trendingMovies.map((movie) => (
-              <MovieCard key={movie.id} movie={movie} addToMyList={addToMyList} />
-            ))
-          )}
-        </div>
+      <div className='trending'>
+        {/* Loop through trendingMovies and render a MovieCard for each */}
+        {trendingMovies.map(movie => (
+          <MovieCard key={movie.id} movie={movie} />
+        ))}
+      </div>
       </div>
 
       <h2>Popular Movies</h2>
       <div className="movie-category">
-        <div className="popular">
-          {isSearching ? (
-            searchResults.map((movie) => (
-              <MovieCard key={movie.id} movie={movie} addToMyList={addToMyList} />
-            ))
-          ) : (
-            popularMovies.map((movie) => (
-              <MovieCard key={movie.id} movie={movie} addToMyList={addToMyList} />
-            ))
-          )}
-        </div>
+        <div className='popular'>
+          {/* Loop through popularMovies and render a MovieCard for each */}
+        {popularMovies.map(movie => (
+          <MovieCard key={movie.id} movie={movie} />
+        ))}
+      </div>
       </div>
 
       <h2>Free Movies</h2>
       <div className="movie-category">
-        <div className="free">
-          {isSearching ? (
-            searchResults.map((movie) => (
-              <MovieCard key={movie.id} movie={movie} addToMyList={addToMyList} />
-            ))
-          ) : (
-            freeMovies.map((movie) => (
-              <MovieCard key={movie.id} movie={movie} addToMyList={addToMyList} />
-            ))
-          )}
-        </div>
+        <div className='free'>
+        {/* Loop through freeMovies and render a MovieCard for each */}
+        {freeMovies.map(movie => (
+          <MovieCard key={movie.id} movie={movie} />
+        ))}
+      </div>
       </div>
     </div>
+
   );
 };
 

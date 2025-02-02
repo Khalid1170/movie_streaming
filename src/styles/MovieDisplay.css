@@ -1,53 +1,53 @@
 .movie-display {
-    padding: 20px;
-  }
+  padding: 20px;
+}
 
-  .movie-display h2 {
-    color: #90cea1;
-  }
+.movie-display h2 {
+  color: #90cea1;
+}
 
-  .movie-category {
-    margin-bottom: 40px;
-    position: relative;
+
+.movie-category {
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.popular, .trending, .free {
+  display: flex;
+  justify-content: flex-start;
+  white-space: nowrap;
+  overflow-x: auto; 
+  scroll-behavior: smooth; 
+  position: relative;
+}
+
+.popular::-webkit-scrollbar, .trending::-webkit-scrollbar, .free::-webkit-scrollbar {
+  height: 8px; 
+}
+
+.popular::-webkit-scrollbar-thumb, .trending::-webkit-scrollbar-thumb, .free::-webkit-scrollbar-thumb {
+  background-color: #d9d9d9;
+  border-radius: 10px;
+}
+
+.popular::-webkit-scrollbar-track, .trending::-webkit-scrollbar-track, .free::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0); 
   }
-  
-  .popular, .trending, .free {
-    display: flex;
-    justify-content: flex-start;
-    white-space: nowrap;
-    overflow-x: auto; 
-    scroll-behavior: smooth; 
-    position: relative;
+  100% {
+    transform: translateX(-100%); 
   }
-  
-  .popular::-webkit-scrollbar, .trending::-webkit-scrollbar, .free::-webkit-scrollbar {
-    height: 8px; 
-  }
-  
-  .popular::-webkit-scrollbar-thumb, .trending::-webkit-scrollbar-thumb, .free::-webkit-scrollbar-thumb {
-    background-color: #d9d9d9;
-    border-radius: 10px;
-  }
-  
-  .popular::-webkit-scrollbar-track, .trending::-webkit-scrollbar-track, .free::-webkit-scrollbar-track {
-    background-color: #f1f1f1;
-  }
-  
-  @keyframes scroll-left {
-    0% {
-      transform: translateX(0); 
-    }
-    100% {
-      transform: translateX(-100%); 
-    }
-  }
-  
-  .movie-category .content {
-    display: flex;
-    animation: scroll-left 60s linear infinite; 
-  }
-  
-  .popular:hover .content, .trending:hover .content, .free:hover .content {
-    animation-duration: 120s; 
-  }
-  
+}
+
+.movie-category .content {
+  display: flex;
+  animation: scroll-left 60s linear infinite; 
+}
+
+.popular:hover .content, .trending:hover .content, .free:hover .content {
+  animation-duration: 120s; 
+}
