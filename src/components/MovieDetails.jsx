@@ -25,7 +25,7 @@ const MovieDetails = ({ addToMyList }) => {  // Accept addToMyList as a prop
 
   const handleAddToMyList = () => {
     if (movie) {
-      addToMyList(movie);  // Call the addToMyList function passed from the parent component
+      addToMyList(movie);  
     }
   };
 
