@@ -7,7 +7,7 @@ import MyList from './components/MyList';
 import MovieDetails from './components/MovieDetails';
 import { fetchMovies } from './utils/fetchMovies';
 import MoviePoster from './components/MoviePoster';
-import Footer from './components/Footer';
+
 
 
 const App = () => {
